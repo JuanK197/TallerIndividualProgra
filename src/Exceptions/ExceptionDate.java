@@ -1,5 +1,10 @@
 package Exceptions;
 
-public class ExceptionDate {
+public class ExceptionDate extends Exception{
 
+	
+	public ExceptionDate() {
+		
+		
+	}
 }
