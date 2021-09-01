@@ -30,7 +30,7 @@ class TesterOca {
 		
 		setup();
 
-		assertEquals("",oca.getAge());
+		assertEquals(21,oca.getAge());
 		
 	}
 	

@@ -43,10 +43,11 @@ class TesterFly {
 	   ticket = new Ticket(fly, passenger, (short) 4,7);
 	   ticket2 = new Ticket(fly2, passenger2, (short) 7,10);
 	   ArrayList<Ticket> tickets = new ArrayList<Ticket>();
-	   
+	   tickets.add(new Ticket(fly, passenger, (short) 4,7));
+	   tickets.add(new Ticket(fly2, passenger2, (short) 7,10));
 	   fly = new Fly("0101", LocalDate.of(1999, 9, 9),LocalTime.of(10, 40, 9), airplane,target, tickets);
 	   
-	   fly2 = new Fly("0202", LocalDate.of(1997, 9, 9),LocalTime.of(10, 40, 9), airplane2,target2, tickets);
+	   
 	   
 	   
 	   
@@ -62,4 +63,5 @@ class TesterFly {
 		
 	}
 	    
+
 }
