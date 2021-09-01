@@ -6,7 +6,7 @@ public class Airplane {
 	private short capacity;
 	private short year;
 	private ETypeAirplane typeAirplane;
-	
+	 
 	public Airplane(String idAirplane, short capacity, short year, ETypeAirplane typeAirplane) {
 		super();
 		this.idAirplane = idAirplane;

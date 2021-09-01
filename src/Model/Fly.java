@@ -2,7 +2,10 @@ package Model;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Period;
 import java.util.ArrayList;
+
+import Exceptions.ExceptionDate;
 
 public class Fly {
 
@@ -11,13 +14,13 @@ public class Fly {
 	private LocalTime time;
 	
 	private Airplane airplane;
-	private Target target;
+	private Targett target;
 	
 	private Passenger passenger;
 	
 	private ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 
-	public Fly(String idFly, LocalDate date, LocalTime time, Airplane airplane, Target target,
+	public Fly(String idFly, LocalDate date, LocalTime time, Airplane airplane, Targett target,
 			ArrayList<Ticket> tickets) {
 		super();
 		this.idFly = idFly;
@@ -33,7 +36,11 @@ public class Fly {
 		return date;
 	}
 
-	public void setDate(LocalDate date) {
+	public void setDate(LocalDate date) throws ExceptionDate{
+		if(date.isBefore(LocalDate.now())) {
+			
+			throw new ExceptionDate("Fecha invalida");
+		}
 		this.date = date;
 	}
 
@@ -73,11 +80,11 @@ public class Fly {
 		this.airplane = airplane;
 	}
 
-	public Target getTarget() {
+	public Targett getTarget() {
 		return target;
 	}
 
-	public void setTarget(Target target) {
+	public void setTarget(Targett target) {
 		this.target = target;
 	}
 	
@@ -88,8 +95,22 @@ public class Fly {
 	
 	public Passenger getLessAge() {
 		
+		int younger, older;
+		int value=0;
+		older = younger = tickets.get(0).getPassenger().getAge();
 		
-		return passenger;
+		for(int i = 0; i<tickets.size(); i++) {
+			
+			
+			if(tickets.get(i).getPassenger().getAge()<younger) {
+				
+				younger= tickets.get(i).getPassenger().getAge();
+				value=i;
+			}
+			
+		}
+		
+		return tickets.get(value).getPassenger();
 	}
 	
 	public Passenger getGreaterAge() {

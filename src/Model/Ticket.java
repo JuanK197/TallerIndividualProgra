@@ -17,6 +17,8 @@ public class Ticket{
 		this.weight = weight;
 		
 	}
+	
+	
 
 	public Ticket(Fly fly, Passenger passenger, short chairNumber) {
 		super();

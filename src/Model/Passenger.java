@@ -1,15 +1,18 @@
 package Model;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 
 public abstract class Passenger {
+
 
 	protected String idPassenger;
 	protected String firstName;
 	protected String lastName;
 	protected String country;
 	protected LocalDate dateBirthday;
+	protected Fly fly;
 	protected ArrayList<Ticket> tickets = new ArrayList<Ticket>();
 	
 	public Passenger(String idPassenger, String firstName, String lastName, String country, LocalDate dateBirthday) {
@@ -18,6 +21,14 @@ public abstract class Passenger {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.country = country;
+		this.dateBirthday = dateBirthday;
+	}
+
+	public LocalDate getDateBirthday() {
+		return dateBirthday;
+	}
+
+	public void setDateBirthday(LocalDate dateBirthday) {
 		this.dateBirthday = dateBirthday;
 	}
 
@@ -55,8 +66,9 @@ public abstract class Passenger {
 	
 	
 	public byte getAge() {
-		
-		return 0;
+		Period period = Period.between(getDateBirthday(), LocalDate.now());
+		byte age = (byte) period.getYears();
+		return age;
 	}
 	
 	public boolean addToFly(Fly fly, short seatNumber) {
@@ -71,7 +83,7 @@ public abstract class Passenger {
 	
 	public double calcOvercrowed() {
 		
-		return 0;
+		return 0;	
 	}
 	
 	public abstract double getTicketCost();
@@ -81,6 +93,6 @@ public abstract class Passenger {
 	public ArrayList<Ticket> getTickets() {
 		return tickets;
 	}
-	
+
 	
 }

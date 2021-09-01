@@ -27,8 +27,11 @@ public class Ocassional extends Passenger{
 
 	@Override
 	public double getTicketCost() {
+	double cost = fly.getTarget().getValueTicket();
 	
-		return 0;
+	int year = LocalDate.now().getYear() - fly.getAirplane().getYear();
+	
+		return year;
 	}
 
 

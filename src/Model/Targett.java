@@ -1,13 +1,13 @@
 package Model;
 
-public class Target {
+public class Targett {
 
 	private String idTarget;
 	private String nameTarget;
 	private double valueTicket;
 	private float distance;
 	
-	public Target(String idTarget, String nameTarget, double valueTicket, float distance) {
+	public Targett(String idTarget, String nameTarget, double valueTicket, float distance) {
 		super();
 		this.idTarget = idTarget;
 		this.nameTarget = nameTarget;
